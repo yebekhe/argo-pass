@@ -1,0 +1,128 @@
+{
+	"log": {
+		"access": "/dev/null",
+		"error": "/dev/null",
+		"loglevel": "warning"
+	},
+	"inbounds": [
+		{
+			"port": 10000,
+			"listen": "127.0.0.1",
+			"protocol": "vmess",
+			"settings": {
+				"clients": [
+					{
+						"id": "UUID",
+						"alterId": 0
+					}
+				]
+			},
+			"streamSettings": {
+				"network": "ws",
+				"wsSettings": {
+					"path": "VMESS_WSPATH"
+				}
+			}
+		},
+		{
+			"port": 20000,
+			"listen": "127.0.0.1",
+			"protocol": "vless",
+			"settings": {
+				"clients": [
+					{
+						"id": "UUID"
+					}
+				],
+				"decryption": "none"
+			},
+			"streamSettings": {
+				"network": "ws",
+				"wsSettings": {
+					"path": "VLESS_WSPATH"
+				}
+			}
+		},
+		{
+			"port": 30000,
+			"listen": "127.0.0.1",
+			"protocol": "trojan",
+			"settings": {
+				"clients": [
+					{
+						"password": "UUID"
+					}
+				],
+				"decryption": "none"
+			},
+			"streamSettings": {
+				"network": "ws",
+				"wsSettings": {
+					"path": "TROJAN_WSPATH"
+				}
+			}
+		},
+		{
+			"port": 40000,
+			"listen": "127.0.0.1",
+			"protocol": "shadowsocks",
+			"settings": {
+				"clients": [
+					{
+						"method": "chacha20-ietf-poly1305",
+						"password": "UUID"
+					}
+				],
+				"decryption": "none"
+			},
+			"streamSettings": {
+				"network": "ws",
+				"wsSettings": {
+					"path": "SS_WSPATH"
+				}
+			}
+		}
+	],
+	"outbounds": [
+		{
+			"protocol": "freedom",
+			"settings": {}
+		},
+		{
+			"tag": "WARP",
+			"protocol": "wireguard",
+			"settings": {
+				"secretKey": "GAl2z55U2UzNU5FG+LW3kowK+BA/WGMi1dWYwx20pWk=",
+				"address": [
+					"172.16.0.2/32",
+					"2606:4700:110:8f0a:fcdb:db2f:3b3:4d49/128"
+				],
+				"peers": [
+					{
+						"publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+						"endpoint": "engage.cloudflareclient.com:2408"
+					}
+				]
+			}
+		}
+	],
+	"routing": {
+		"domainStrategy": "AsIs",
+		"rules": [
+			{
+				"type": "field",
+				"domain": [
+					"domain:openai.com",
+					"domain:ai.com"
+				],
+				"outboundTag": "WARP"
+			}
+		]
+	},
+	"dns": {
+		"server": [
+			"8.8.8.8",
+			"8.8.4.4"
+		]
+	}
+}
