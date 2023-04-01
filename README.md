@@ -1,5 +1,6 @@
-# Argo xray for PaaS By https://github.com/Misaka-blog
-## Translated by https://twitter.com/yebekhe
+# Argo xray for PaaS
+By https://github.com/Misaka-blog
+
 ## Project Features
 
 * This project is used to deploy xray on any PaaS cloud service provider, and the solution adopted is Argo + Nginx + WebSocket + VMess/Vless/Trojan/Shadowsocks + TLS
@@ -38,6 +39,7 @@
 
 * ifeng's v2ray project: https://github.com/hiifeng
 * fscarmen2's argo xray project: https://github.com/fscarmen2
+* Translator to English (all files translated) : https://github.com/yebekhe
 
 ## Disclaimer
 
