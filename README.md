@@ -1,51 +1,52 @@
-# Argo xray for PaaS
+#Argo xray for PaaS : Translated by https://twitter.com/yebekhe
 
-## 项目特点
 
-* 本项目用于在任意一家 PaaS 云服务商部署 xray ，采用的方案为 Argo + Nginx + WebSocket + VMess/Vless/Trojan/Shadowsocks + TLS
-* xray 核心文件和配置文件作了“特殊处理”，每个项目都不同，大大降低被封和连坐风险
-* vmess 和 vless 的 uuid 或 trojan 和 shadowsocks 的密码，路径既可以自定义，又或者使用默认值
-* 集成哪吒探针，可以自由选择是否安装
-* 部署完成如发现不能上网，请检查域名是否被墙，可使用生成的 Argo 节点或 Cloudflare CDN 或者 worker 解决。
+## Project Features
 
-## 部署
+* This project is used to deploy xray on any PaaS cloud service provider, and the solution adopted is Argo + Nginx + WebSocket + VMess/Vless/Trojan/Shadowsocks + TLS
+* The xray core file and configuration file have been "specially processed", each project is different, which greatly reduces the risk of being blocked and sitting continuously
+* The uuid of vmess and vless or the password of trojan and shadowsocks, the path can be customized or use the default value
+* Integrated Nezha probe, you can freely choose whether to install it
+* After the deployment is complete, if you find that you cannot access the Internet, please check whether the domain name is blocked. You can use the generated Argo node or Cloudflare CDN or worker to solve it.
 
-* 注册任意一家 PaaS 云服务商
-* 根据 PaaS 云服务商的不同绑定自己的 GitHub 账户或使用项目提供的 Actions 生成 DockerHub 镜像，严重建议小号 + 私库
-* 项目可用到的变量
-  | 变量名 | 是否必须 | 默认值 | 备注 |
-  | ------------ | ------ | ------ | ------ |
-  | UUID         | 否 | de04add9-5c68-8bab-950c-08cd5320df18 | 可在线生成 https://www.uuidgenerator.net/ |
-  | VMESS_WSPATH  | 否 | /vmess | 以 / 开头 |
-  | VLESS_WSPATH  | 否 | /vless | 以 / 开头 |
-  | TROJAN_WSPATH | 否 | /trojan | 以 / 开头 |
-  | SS_WSPATH     | 否 | /shadowsocks | 以 / 开头 |
-  | NEZHA_SERVER  | 否 |     | 哪吒探针服务端的 IP 或域名 |
-  | NEZHA_PORT    | 否 |     | 哪吒探针服务端的端口 |
-  | NEZHA_KEY     | 否 |     | 哪吒探针客户端专用 Key |
+## deployment
 
-* GitHub Actions 用到的变量
+* Register with any PaaS cloud service provider
+* Depending on the PaaS cloud service provider, bind your own GitHub account or use the Actions provided by the project to generate a DockerHub image. It is highly recommended to use a trumpet + private library
+* Variables available to the project
+   | Variable name | Required | Default value | Remarks |
+   | ------------ | ------ | ------ | ------ |
+   | UUID | No | de04add9-5c68-8bab-950c-08cd5320df18 | Can be generated online https://www.uuidgenerator.net/ |
+   | VMESS_WSPATH | No | /vmess | Starts with / |
+   | VLESS_WSPATH | No | /vless | Starts with / |
+   | TROJAN_WSPATH | No | /trojan | Starts with / |
+   | SS_WSPATH | No | /shadowsocks | Start with / |
+   | NEZHA_SERVER | No | | The IP or domain name of the Nezha probe server |
+   | NEZHA_PORT | No | | The port of the Nezha probe server |
+   | NEZHA_KEY | No | | Nezha Probe client dedicated Key |
 
-  |    变量名     |      备注      |
-  | ------------- | -------------- |
-  |DOCKER_USERNAME|Docker Hub 用户名|
-  |DOCKER_PASSWORD|Docker Hub 密码  |
-  |DOCKER_REPO    |Docker Hub 仓库名|
+* Variables used by GitHub Actions
+
+   | Variable name | Remarks |
+   | ------------- | -------------- |
+   |DOCKER_USERNAME|Docker Hub username|
+   |DOCKER_PASSWORD|Docker Hub password|
+   |DOCKER_REPO |Docker Hub repository name|
 
 ![image](https://user-images.githubusercontent.com/116990986/211692321-34df154a-320a-448f-9abe-2efab9c53550.png)
 
-## 鸣谢
+## Acknowledgments
 
-* ifeng 的 v2ray 项目：https://github.com/hiifeng
-* fscarmen2 的 argo xray 项目：https://github.com/fscarmen2
+* ifeng's v2ray project: https://github.com/hiifeng
+* fscarmen2's argo xray project: https://github.com/fscarmen2
 
-## 免责声明
+## Disclaimer
 
-* 本程序仅供学习了解, 非盈利目的，请于下载后 24 小时内删除, 不得用作任何商业用途, 文字、数据及图片均有所属版权, 如转载须注明来源。
-* 使用本程序必循遵守部署免责声明。使用本程序必循遵守部署服务器所在地、所在国家和用户所在国家的法律法规, 程序作者不对使用者任何不当行为负责.
+* This program is only for learning and understanding. For non-profit purposes, please delete it within 24 hours after downloading. It cannot be used for any commercial purposes. The text, data and pictures are copyrighted. If reproduced, the source must be indicated.
+* Use of this program is subject to the deployment disclaimer. The use of this program must comply with the laws and regulations of the location where the deployment server is located, the country where the user is located, and the country where the user is located. The program author is not responsible for any improper behavior of the user.
 
-## 赞助
+## sponsorship
 
-爱发电：https://afdian.net/a/Misaka-blog
+Afdian: https://afdian.net/a/Misaka-blog
 
-![afdian-MisakaNo の 小破站](https://user-images.githubusercontent.com/122191366/211533469-351009fb-9ae8-4601-992a-abbf54665b68.jpg)
+![afdian-MisakaNo の Xiaopo Station](https://user-images.githubusercontent.com/122191366/211533469-351009fb-9ae8-4601-992a-abbf54665b68.jpg)
