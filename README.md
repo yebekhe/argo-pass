@@ -1,4 +1,4 @@
-#Argo xray for PaaS : Translated by https://twitter.com/yebekhe
+#Argo xray for PaaS
 
 
 ## Project Features
